@@ -1,3 +1,10 @@
-<li><%= message.user %></li>
-<li><%= message.text %></li>
-<li><%= message.added %></li>
+<li class="message-card">
+  <div class="message-header">
+    <span class="message-user"><%= message.user %></span>
+    <span class="message-date"><%= message.added.toLocaleString() %></span>
+  </div>
+  <p class="message-text"><%= message.text %></p>
+  <div>
+    <a href="/message/<%= index %>" class="btn-secondary">View details</a>
+  </div>
+</li>

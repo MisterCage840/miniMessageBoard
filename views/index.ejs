@@ -1,16 +1,42 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Homepage</title>
+    <meta charset="UTF-8" />
+    <title>Mini Message Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <%- include('navbar', {links: links}) %>
-    <ul>
-      <% messages.forEach((message,index) => { %> <%- include('message',
-      {message: message}); %>
-      <a href="/message/<%= index %>">
-        <button>View Details</button>
-      </a>
-      <% }); %>
-    </ul>
+    <div class="page">
+      <div class="shell">
+        <%- include('navbar', { links: links }) %>
+
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Mini Message Board</h1>
+            <p class="page-subtitle">
+              A tiny place to leave quick notes. Add a message and see it appear
+              below.
+            </p>
+          </div>
+          <div class="actions">
+            <a href="/new" class="btn-primary">+ New message</a>
+          </div>
+        </header>
+
+        <main>
+          <% if (messages && messages.length > 0) { %>
+          <ul class="message-list">
+            <% messages.forEach((message, index) => { %> <%- include("message",
+            { message, index }) %> <% }) %>
+          </ul>
+          <% } else { %>
+          <p class="page-subtitle">
+            No messages yet. Be the first to post one!
+          </p>
+          <% } %>
+        </main>
+      </div>
+    </div>
   </body>
 </html>

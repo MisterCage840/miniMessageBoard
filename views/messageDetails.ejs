@@ -1,3 +1,36 @@
-<li><%= message.user %></li>
-<li><%= message.text %></li>
-<li><%= message.added %></li>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Message Details · Mini Message Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="shell details-card">
+        <%- include('navbar', { links: links }) %>
+
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Message details</h1>
+            <p class="page-subtitle">A closer look at a single message.</p>
+          </div>
+        </header>
+
+        <main>
+          <section class="message-card">
+            <div class="details-meta">
+              <h2><%= message.user %></h2>
+              <span><%= message.added.toLocaleString() %></span>
+            </div>
+            <p class="details-body"><%= message.text %></p>
+            <div class="details-footer">
+              <a href="/" class="btn-secondary">← Back to all messages</a>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
