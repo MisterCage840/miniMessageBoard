@@ -5,8 +5,12 @@
   <body>
     <%- include('navbar', {links: links}) %>
     <ul>
-      <% messages.forEach((message) => { %> <%- include('message', {message:
-      message}); %> <% }); %>
+      <% messages.forEach((message,index) => { %> <%- include('message',
+      {message: message}); %>
+      <a href="/message/<%= index %>">
+        <button>View Details</button>
+      </a>
+      <% }); %>
     </ul>
   </body>
 </html>

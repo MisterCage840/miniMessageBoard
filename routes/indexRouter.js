@@ -11,4 +11,10 @@ indexRouter.get("/", (req, res) => {
   res.render("index", { messages: messages, links: links })
 })
 
+indexRouter.get("/message/:id", (req, res) => {
+  const message = messages[req.params.id]
+  if (!message) res.status(400).send("Message not found")
+  res.render("messageDetails", { message })
+})
+
 module.exports = indexRouter
