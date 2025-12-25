@@ -1,7 +1,7 @@
 const pool = require("./pool")
 
 async function getAllMessages() {
-  const { rows } = await pool.query("SELECT * FROM koyebdb")
+  const { rows } = await pool.query("SELECT * FROM messages")
   return rows
 }
 
@@ -13,7 +13,7 @@ async function getMessageById(messageId) {
 }
 
 async function insertMessage(username, messageText) {
-  await pool.query("INSERT INTO koyebdb (username,messageText) VALUES ($1)", [
+  await pool.query("INSERT INTO messages (username,messageText) VALUES ($1)", [
     username,
     messageText,
   ])
