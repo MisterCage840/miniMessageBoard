@@ -1,3 +1,4 @@
+require("dotenv").config()
 const { Client } = require("pg")
 
 const SQL = `
@@ -19,7 +20,9 @@ async function main() {
   console.log("seeding...")
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
   })
+  console.log("DB:", process.env.DATABASE_URL)
   await client.connect()
   await client.query(SQL)
   await client.end()
