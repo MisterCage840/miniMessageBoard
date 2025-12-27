@@ -11,9 +11,10 @@ exports.messagesListGet = async (req, res) => {
 }
 
 exports.messageUserGet = async (req, res) => {
-  const message = await db.getMessageById(req.params.id)
-  if (!message) {
+  const messages = await db.getAllMessages()
+  const messageId = await db.getMessageById(req.params.id)
+  if (!messageId) {
     return res.status(404).send("Message not found")
   }
-  res.render("messageDetails", { message, links })
+  res.render("messageDetails", { messages, messageId, links })
 }
