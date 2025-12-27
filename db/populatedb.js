@@ -22,7 +22,6 @@ async function main() {
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
   })
-  console.log("DB:", process.env.DATABASE_URL)
   await client.connect()
   await client.query(SQL)
   await client.end()
