@@ -1,9 +1,11 @@
 <li class="message-card">
   <div class="message-header">
-    <span class="message-user"><%= message.user %></span>
-    <span class="message-date"><%= message.added.toLocaleString() %></span>
+    <span class="message-user"><%= message.username %></span>
+    <span class="message-date"
+      ><%= (message.created_at).toLocaleString() %></span
+    >
   </div>
-  <p class="message-text"><%= message.text %></p>
+  <p class="message-text"><%= message.messagetext %></p>
   <div>
     <a href="/message/<%= index %>" class="btn-secondary">View details</a>
   </div>
