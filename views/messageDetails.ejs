@@ -21,12 +21,10 @@
         <main>
           <section class="message-card">
             <div class="details-meta">
-              <h2><%= messages[messageId].username %></h2>
-              <span
-                ><%= (messages[messageId].created_at).toLocaleString() %></span
-              >
+              <h2><%= message.username %></h2>
+              <span><%= (message.created_at).toLocaleString() %></span>
             </div>
-            <p class="details-body"><%= messages[messageId].messagetext %></p>
+            <p class="details-body"><%= message.messagetext %></p>
             <div class="details-footer">
               <a href="/" class="btn-secondary">← Back to all messages</a>
             </div>
