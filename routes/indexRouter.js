@@ -16,6 +16,6 @@ const messagesController = require("../controllers/messagesController")
 // })
 
 indexRouter.get("/", messagesController.messagesListGet)
-indexRouter.get("/message/:id", messagesController.messagesListGet)
+indexRouter.get("/message/:id", messagesController.messageUserGet)
 
 module.exports = indexRouter
